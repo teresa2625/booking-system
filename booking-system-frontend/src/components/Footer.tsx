@@ -45,16 +45,12 @@ function Footer() {
                 color: "inherit",
               }}
             >
-              <XIcon sx={{ display: { xs: "flex", md: "flex" }, mr: 1 }} />
-              <InstagramIcon
-                sx={{ display: { xs: "flex", md: "flex" }, mr: 1 }}
-              />
-              <YouTubeIcon
-                sx={{ display: { xs: "flex", md: "flex" }, mr: 1 }}
-              />
-              <FacebookIcon
-                sx={{ display: { xs: "flex", md: "flex" }, mr: 1 }}
-              />
+              <Stack direction="row" gap={"1px"} spacing={3}>
+                <XIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+                <InstagramIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+                <YouTubeIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+                <FacebookIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+              </Stack>
             </Box>
             <Divider
               orientation="vertical"
