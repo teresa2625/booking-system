@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function CopyRight() {
   return (
@@ -32,7 +34,9 @@ function CopyRight() {
               justifyContent: "flex-end",
             }}
           >
-            <Typography>Schedule your next Appointment</Typography>
+            <Button component={Link} to="/booking" color="primary">
+              Schedule your next Appointment
+            </Button>
           </Box>
         </Toolbar>
       </Container>

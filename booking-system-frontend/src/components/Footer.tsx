@@ -322,7 +322,7 @@ function Footer() {
             </Box>
           </Stack>
           <Stack
-            gap={2}
+            gap={3}
             useFlexGap
             sx={{
               flexWrap: "noWrap",
@@ -419,11 +419,7 @@ function Footer() {
                 </Typography>
               </Stack>
             </Box>
-            <Box
-              sx={{
-                maxWidth: 260,
-              }}
-            >
+            <Box>
               <Typography
                 sx={{
                   width: 260,
@@ -477,7 +473,11 @@ function Footer() {
                 <Link to="/">Sevice 3</Link>
               </Stack>
             </Box>
-            <Box>
+            <Box
+              sx={{
+                mb: "64px",
+              }}
+            >
               <Typography
                 sx={{
                   width: 260,
