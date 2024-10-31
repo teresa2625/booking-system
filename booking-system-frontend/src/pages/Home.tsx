@@ -1,9 +1,9 @@
-import { Box, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import CopyRight from "components/CopyRight";
 import Footer from "components/Footer";
+import Header from "components/Header";
 import NavigationBar from "components/NavigationBar";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ const Home: React.FC = () => {
       <ThemeProvider theme={Theme}>
         <CssBaseline />
         <NavigationBar />
+        <Header />
         <Container maxWidth="xl">
           <Typography>Welcome to the Booking System</Typography>
           <Link to="/booking">Make a Booking</Link>

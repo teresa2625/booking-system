@@ -31,10 +31,14 @@ function Footer() {
         <Container maxWidth="xl">
           <Stack
             direction="row"
-            gap={3}
+            gap={2}
             spacing={1}
             useFlexGap
-            sx={{ flexWrap: "wrap" }}
+            sx={{
+              flexWrap: "noWrap",
+              maxWidth: "1440px",
+              display: { xs: "none", md: "none", lg: "flex", xl: "flex" },
+            }}
           >
             <Box
               sx={{
@@ -63,15 +67,21 @@ function Footer() {
                 ml: "64px",
                 mt: "64px",
                 mb: "15px",
+                flexWrap: "noWrap",
               }}
             >
-              <Stack direction="row" spacing={2} useFlexGap>
+              <Stack
+                direction="row"
+                useFlexGap
+                sx={{ flexWrap: "noWrap" }}
+                spacing={{ lg: 1, xl: 15 }}
+              >
                 <Box>
                   <Stack
                     spacing={1}
                     direction="row"
                     useFlexGap
-                    sx={{ flexWrap: "wrap" }}
+                    sx={{ flexWrap: "nowrap" }}
                   >
                     <LocationOnIcon
                       sx={{ display: { xs: "flex", md: "flex" }, mt: "5px" }}
@@ -84,17 +94,17 @@ function Footer() {
                         sx={{ fontSize: "16px", fontWeight: "400" }}
                         color=""
                       >
-                        250 Main Street, New York
+                        123 Main Street, New York
                       </Typography>
                     </Typography>
                   </Stack>
                 </Box>
-                <Box sx={{ mx: "64px" }}>
+                <Box>
                   <Stack
                     spacing={1}
                     direction="row"
                     useFlexGap
-                    sx={{ flexWrap: "wrap" }}
+                    sx={{ flexWrap: "nowrap" }}
                   >
                     <PhoneIcon
                       sx={{ display: { xs: "flex", md: "flex" }, mt: "5px" }}
@@ -117,7 +127,7 @@ function Footer() {
                     spacing={1}
                     direction="row"
                     useFlexGap
-                    sx={{ flexWrap: "wrap" }}
+                    sx={{ flexWrap: "nowrap" }}
                   >
                     <EmailIcon
                       sx={{ display: { xs: "flex", md: "flex" }, mt: "5px" }}
@@ -137,167 +147,437 @@ function Footer() {
                 </Box>
               </Stack>
             </Box>
-            <Box sx={{ mb: "50px" }}>
-              <Stack direction="row" spacing={3} useFlexGap>
-                <Box
-                  sx={{
-                    maxWidth: 260,
-                  }}
+          </Stack>
+          <Stack
+            direction="row"
+            gap={3}
+            spacing={{ lg: 5, xl: 15 }}
+            useFlexGap
+            sx={{
+              flexWrap: "noWrap",
+              display: { xs: "none", md: "none", lg: "flex", xl: "flex" },
+              maxWidth: "1440px",
+            }}
+          >
+            <Box
+              sx={{
+                maxWidth: 260,
+              }}
+            >
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                About Us
+              </Typography>
+              <Typography sx={{ fontSize: "16px", fontWeight: "400" }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </Typography>
+            </Box>
+            <Box sx={{ maxWidth: 260 }}>
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                Extra Navigation
+              </Typography>
+              <Stack gap={1} spacing={2} useFlexGap>
+                <Link to="/">Nav 1</Link> <br />
+                <Link to="/">Nav 2</Link> <br />
+                <Link to="/">Nav 3</Link>
+              </Stack>
+            </Box>
+            <Box sx={{ maxWidth: 260 }}>
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                Our Services
+              </Typography>
+              <Stack gap={1} spacing={2} useFlexGap>
+                <Link to="/">Sevice 1</Link> <br />
+                <Link to="/">Sevice 2</Link> <br />
+                <Link to="/">Sevice 3</Link>
+              </Stack>
+            </Box>
+            <Box sx={{ maxWidth: 260 }}>
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                Opening Hours
+              </Typography>
+              <Stack
+                gap={1}
+                divider={<Divider orientation="horizontal" flexItem />}
+                spacing={6}
+                useFlexGap
+              >
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Monday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Tuesday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Wednesday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Thursday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Friday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Saturday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Sunday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+              </Stack>
+            </Box>
+          </Stack>
+          <Stack
+            gap={2}
+            useFlexGap
+            sx={{
+              flexWrap: "noWrap",
+              maxWidth: "1440px",
+              display: { xs: "flex", md: "flex", lg: "none", xl: "none" },
+            }}
+          >
+            <Box
+              sx={{
+                display: { xs: "flex", md: "flex" },
+                mr: "64px",
+                mt: "64px",
+                mb: "15px",
+                color: "inherit",
+              }}
+            >
+              <Stack
+                direction="row"
+                gap={"1px"}
+                spacing={{ xs: 1, sm: 2, md: 3 }}
+              >
+                <XIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+                <InstagramIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+                <YouTubeIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+                <FacebookIcon sx={{ display: { xs: "flex", md: "flex" } }} />
+              </Stack>
+            </Box>
+            <Box>
+              <Stack
+                spacing={1}
+                direction="row"
+                useFlexGap
+                sx={{ flexWrap: "nowrap" }}
+              >
+                <LocationOnIcon
+                  sx={{ display: { xs: "flex", md: "flex" }, mt: "5px" }}
+                />
+                <Typography
+                  sx={{ width: 250, fontSize: "24px", fontWeight: "600" }}
                 >
+                  Visit our Location
+                  <Typography
+                    sx={{ fontSize: "16px", fontWeight: "400" }}
+                    color=""
+                  >
+                    123 Main Street, New York
+                  </Typography>
+                </Typography>
+              </Stack>
+            </Box>
+            <Box>
+              <Stack
+                spacing={1}
+                direction="row"
+                useFlexGap
+                sx={{ flexWrap: "nowrap" }}
+              >
+                <PhoneIcon
+                  sx={{ display: { xs: "flex", md: "flex" }, mt: "5px" }}
+                />
+                <Typography
+                  sx={{ width: 250, fontSize: "24px", fontWeight: "600" }}
+                >
+                  Give us a Call
+                  <Typography
+                    sx={{ fontSize: "16px", fontWeight: "400" }}
+                    color=""
+                  >
+                    + (12) 123 - 456 -789
+                  </Typography>
+                </Typography>
+              </Stack>
+            </Box>
+            <Box>
+              <Stack
+                spacing={1}
+                direction="row"
+                useFlexGap
+                sx={{ flexWrap: "nowrap" }}
+              >
+                <EmailIcon
+                  sx={{ display: { xs: "flex", md: "flex" }, mt: "5px" }}
+                />
+                <Typography
+                  sx={{ width: 250, fontSize: "24px", fontWeight: "600" }}
+                >
+                  Send us a Message
+                  <Typography
+                    sx={{ fontSize: "16px", fontWeight: "400" }}
+                    color=""
+                  >
+                    info@test.com
+                  </Typography>
+                </Typography>
+              </Stack>
+            </Box>
+            <Box
+              sx={{
+                maxWidth: 260,
+              }}
+            >
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                About Us
+              </Typography>
+              <Typography sx={{ fontSize: "16px", fontWeight: "400" }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                Extra Navigation
+              </Typography>
+              <Stack gap={1} spacing={2} useFlexGap>
+                <Link to="/">Nav 1</Link> <br />
+                <Link to="/">Nav 2</Link> <br />
+                <Link to="/">Nav 3</Link>
+              </Stack>
+            </Box>
+            <Box>
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                Our Services
+              </Typography>
+              <Stack gap={1} spacing={2} useFlexGap>
+                <Link to="/">Sevice 1</Link> <br />
+                <Link to="/">Sevice 2</Link> <br />
+                <Link to="/">Sevice 3</Link>
+              </Stack>
+            </Box>
+            <Box>
+              <Typography
+                sx={{
+                  width: 260,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  mb: "15px",
+                }}
+              >
+                Opening Hours
+              </Typography>
+              <Stack
+                gap={1}
+                divider={<Divider orientation="horizontal" flexItem />}
+                spacing={6}
+                useFlexGap
+              >
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Monday</Typography>
                   <Typography
                     sx={{
-                      width: 260,
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      mb: "15px",
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
                     }}
                   >
-                    About Us
+                    07:00 - 17:00
                   </Typography>
-                  <Typography sx={{ fontSize: "16px", fontWeight: "400" }}>
-                    Physio is a premium WordPress theme designed & built for
-                    physical therapy and rehabilitation clinics. The theme has a
-                    drag and drop page builder, is fully customizable and
-                    responsive. Only available on ThemeForest.
-                  </Typography>
-                </Box>
-                <Box sx={{ maxWidth: 260, ml: "50px" }}>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Tuesday</Typography>
                   <Typography
                     sx={{
-                      width: 260,
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      mb: "15px",
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
                     }}
                   >
-                    Extra Navigation
+                    07:00 - 17:00
                   </Typography>
-                  <Stack gap={1} spacing={2} useFlexGap>
-                    <Link to="/">Nav 1</Link> <br />
-                    <Link to="/">Nav 2</Link> <br />
-                    <Link to="/">Nav 3</Link>
-                  </Stack>
-                </Box>
-                <Box sx={{ maxWidth: 260, ml: "50px" }}>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Wednesday</Typography>
                   <Typography
                     sx={{
-                      width: 260,
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      mb: "15px",
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
                     }}
                   >
-                    Our Services
+                    07:00 - 17:00
                   </Typography>
-                  <Stack gap={1} spacing={2} useFlexGap>
-                    <Link to="/">Sevice 1</Link> <br />
-                    <Link to="/">Sevice 2</Link> <br />
-                    <Link to="/">Sevice 3</Link>
-                  </Stack>
-                </Box>
-                <Box sx={{ maxWidth: 260, ml: "50px" }}>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Thursday</Typography>
                   <Typography
                     sx={{
-                      width: 260,
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      mb: "15px",
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
                     }}
                   >
-                    Opening Hours
+                    07:00 - 17:00
                   </Typography>
-                  <Stack
-                    gap={1}
-                    divider={<Divider orientation="horizontal" flexItem />}
-                    spacing={6}
-                    useFlexGap
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Friday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
                   >
-                    <Stack spacing={1} direction="row" useFlexGap>
-                      <Typography>Monday</Typography>
-                      <Typography
-                        sx={{
-                          flexGrow: 1,
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        07:00 - 17:00
-                      </Typography>
-                    </Stack>
-                    <Stack spacing={1} direction="row" useFlexGap>
-                      <Typography>Tuesday</Typography>
-                      <Typography
-                        sx={{
-                          flexGrow: 1,
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        07:00 - 17:00
-                      </Typography>
-                    </Stack>
-                    <Stack spacing={1} direction="row" useFlexGap>
-                      <Typography>Wednesday</Typography>
-                      <Typography
-                        sx={{
-                          flexGrow: 1,
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        07:00 - 17:00
-                      </Typography>
-                    </Stack>
-                    <Stack spacing={1} direction="row" useFlexGap>
-                      <Typography>Thursday</Typography>
-                      <Typography
-                        sx={{
-                          flexGrow: 1,
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        07:00 - 17:00
-                      </Typography>
-                    </Stack>
-                    <Stack spacing={1} direction="row" useFlexGap>
-                      <Typography>Friday</Typography>
-                      <Typography
-                        sx={{
-                          flexGrow: 1,
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        07:00 - 17:00
-                      </Typography>
-                    </Stack>
-                    <Stack spacing={1} direction="row" useFlexGap>
-                      <Typography>Saturday</Typography>
-                      <Typography
-                        sx={{
-                          flexGrow: 1,
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        07:00 - 17:00
-                      </Typography>
-                    </Stack>
-                    <Stack spacing={1} direction="row" useFlexGap>
-                      <Typography>Sunday</Typography>
-                      <Typography
-                        sx={{
-                          flexGrow: 1,
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        07:00 - 17:00
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Box>
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Saturday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
+                <Stack spacing={1} direction="row" useFlexGap>
+                  <Typography>Sunday</Typography>
+                  <Typography
+                    sx={{
+                      flexGrow: 1,
+                      display: { xs: "flex", md: "flex" },
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    07:00 - 17:00
+                  </Typography>
+                </Stack>
               </Stack>
             </Box>
           </Stack>
