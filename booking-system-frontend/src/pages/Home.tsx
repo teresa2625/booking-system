@@ -10,6 +10,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Theme from "themes/theme";
 import Box from "@mui/material/Box";
+import Advantage from "components/Advantage";
 
 const Home: React.FC = () => {
   return (
@@ -40,6 +41,7 @@ const Home: React.FC = () => {
               content here',
             </Box>
           </Stack>
+          <Advantage />
         </Container>
         <Footer />
       </ThemeProvider>

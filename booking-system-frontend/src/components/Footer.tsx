@@ -157,6 +157,8 @@ function Footer() {
               flexWrap: "noWrap",
               display: { xs: "none", md: "none", lg: "flex", xl: "flex" },
               maxWidth: "1440px",
+              mt: "30px",
+              mb: "64px",
             }}
           >
             <Box
