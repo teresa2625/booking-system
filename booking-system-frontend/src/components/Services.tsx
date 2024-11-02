@@ -2,9 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import VerifiedIcon from "@mui/icons-material/Verified";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 function Services() {
   return (
@@ -24,7 +21,8 @@ function Services() {
       <Box
         sx={{
           borderRadius: "30px",
-          backgroundColor: "primary.main",
+          border: 5,
+          borderColor: "primary.main",
           maxWidth: "1190px",
           minHeight: "255px",
           justifyItems: "center",
@@ -35,7 +33,7 @@ function Services() {
             position: "absolute",
             width: "250px",
             height: "250px",
-            background: "#B0A695",
+            background: "#EBE3D5",
             left: "-10%",
             top: "-40%",
             borderRadius: "50%",
@@ -54,7 +52,7 @@ function Services() {
           }}
         >
           <Typography
-            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px" }}
+            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px", color: "secondary.main" }}
           >
             Service 1
           </Typography>
@@ -72,8 +70,8 @@ function Services() {
       <Box
         sx={{
           borderRadius: "30px",
-          backgroundColor: "primary.dark",
-          color: "primary.main",
+          border: 5,
+          borderColor: "primary.dark",
           maxWidth: "1190px",
           minHeight: "255px",
           justifyItems: "center",
@@ -84,7 +82,7 @@ function Services() {
             position: "absolute",
             width: "250px",
             height: "250px",
-            background: "#B0A695",
+            background: "#776B5D",
             left: "-10%",
             top: "-40%",
             borderRadius: "50%",
@@ -103,7 +101,7 @@ function Services() {
           }}
         >
           <Typography
-            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px" }}
+            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px", color: "secondary.main" }}
           >
             Service 2
           </Typography>
@@ -121,7 +119,8 @@ function Services() {
       <Box
         sx={{
           borderRadius: "30px",
-          backgroundColor: "primary.main",
+          border: 5,
+          borderColor: "primary.main",
           maxWidth: "1190px",
           minHeight: "255px",
           justifyItems: "center",
@@ -132,7 +131,7 @@ function Services() {
             position: "absolute",
             width: "250px",
             height: "250px",
-            background: "#B0A695",
+            background: "#EBE3D5",
             left: "-10%",
             top: "-40%",
             borderRadius: "50%",
@@ -151,7 +150,7 @@ function Services() {
           }}
         >
           <Typography
-            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px" }}
+            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px", color: "secondary.main" }}
           >
             Service 3
           </Typography>

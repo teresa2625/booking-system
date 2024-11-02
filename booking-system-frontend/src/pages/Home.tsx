@@ -67,6 +67,7 @@ const Home: React.FC = () => {
             </Box>
           </Stack>
           <Services />
+          <Stack></Stack>
         </Container>
         <Footer />
       </ThemeProvider>

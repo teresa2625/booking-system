@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import NavigationBar from "components/NavigationBar";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import CopyRight from "components/CopyRight";
+import Footer from "components/Footer";
 
 const Booking: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const Booking: React.FC = () => {
           <Typography>Booking Page</Typography>
           <BookingForm />
         </Container>
-        <CopyRight />
+        <Footer />
       </ThemeProvider>
     </>
   );
