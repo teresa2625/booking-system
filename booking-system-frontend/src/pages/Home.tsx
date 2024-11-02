@@ -9,6 +9,7 @@ import React from "react";
 import Theme from "themes/theme";
 import Box from "@mui/material/Box";
 import Advantage from "components/Advantage";
+import Services from "components/Services";
 
 const Home: React.FC = () => {
   return (
@@ -40,6 +41,32 @@ const Home: React.FC = () => {
             </Box>
           </Stack>
           <Advantage />
+          <Stack
+            spacing={1}
+            direction="row"
+            sx={{ display: "flex", my: "64px" }}
+          >
+            <Box
+              sx={{
+                flexGrow: 1,
+                minWidth: "180px",
+              }}
+            >
+              Our services
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none", lg: "none", xl: "none" },
+              }}
+            >
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here,
+              content here',
+            </Box>
+          </Stack>
+          <Services />
         </Container>
         <Footer />
       </ThemeProvider>
