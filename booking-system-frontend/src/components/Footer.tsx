@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import XIcon from "@mui/icons-material/X";
@@ -12,9 +11,9 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import CopyRight from "./CopyRight";
-import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function Footer() {
   return (
@@ -196,10 +195,43 @@ function Footer() {
               >
                 Extra Navigation
               </Typography>
-              <Stack gap={1} spacing={2} useFlexGap>
-                <Link to="/">Nav 1</Link> <br />
-                <Link to="/">Nav 2</Link> <br />
-                <Link to="/">Nav 3</Link>
+              <Stack gap={1} spacing={2}>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Nav 1
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Nav 2
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Nav 3
+                </Button>
               </Stack>
             </Box>
             <Box sx={{ maxWidth: 260 }}>
@@ -213,10 +245,43 @@ function Footer() {
               >
                 Our Services
               </Typography>
-              <Stack gap={1} spacing={2} useFlexGap>
-                <Link to="/">Sevice 1</Link> <br />
-                <Link to="/">Sevice 2</Link> <br />
-                <Link to="/">Sevice 3</Link>
+              <Stack gap={1} spacing={2}>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Sevice 3
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Sevice 3
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Sevice 3
+                </Button>
               </Stack>
             </Box>
             <Box sx={{ maxWidth: 260 }}>
@@ -453,9 +518,42 @@ function Footer() {
                 Extra Navigation
               </Typography>
               <Stack gap={1} spacing={2} useFlexGap>
-                <Link to="/">Nav 1</Link> <br />
-                <Link to="/">Nav 2</Link> <br />
-                <Link to="/">Nav 3</Link>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Nav 1
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Nav 2
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Nav 3
+                </Button>
               </Stack>
             </Box>
             <Box>
@@ -470,9 +568,42 @@ function Footer() {
                 Our Services
               </Typography>
               <Stack gap={1} spacing={2} useFlexGap>
-                <Link to="/">Sevice 1</Link> <br />
-                <Link to="/">Sevice 2</Link> <br />
-                <Link to="/">Sevice 3</Link>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Sevice 1
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Sevice 2
+                </Button>
+                <Button
+                  component={Link}
+                  to="/"
+                  sx={{
+                    color: "primary.dark",
+                    padding: "0px",
+                    fontSize: "16px",
+                    justifyContent: "flex-start",
+                  }}
+                >
+                  Sevice 3
+                </Button>
               </Stack>
             </Box>
             <Box
