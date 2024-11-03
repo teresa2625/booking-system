@@ -15,7 +15,6 @@ function Services() {
         display: { xs: "none", md: "flex", lg: "flex", xl: "flex" },
         justifyContent: "center",
         alignItems: "center",
-        mb: "30px",
       }}
     >
       <Box
@@ -52,7 +51,12 @@ function Services() {
           }}
         >
           <Typography
-            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px", color: "secondary.main" }}
+            sx={{
+              fontSize: "30px",
+              fontWeight: "600",
+              minWidth: "150px",
+              color: "secondary.main",
+            }}
           >
             Service 1
           </Typography>
@@ -101,7 +105,12 @@ function Services() {
           }}
         >
           <Typography
-            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px", color: "secondary.main" }}
+            sx={{
+              fontSize: "30px",
+              fontWeight: "600",
+              minWidth: "150px",
+              color: "secondary.main",
+            }}
           >
             Service 2
           </Typography>
@@ -150,7 +159,12 @@ function Services() {
           }}
         >
           <Typography
-            sx={{ fontSize: "30px", fontWeight: "600", minWidth: "150px", color: "secondary.main" }}
+            sx={{
+              fontSize: "30px",
+              fontWeight: "600",
+              minWidth: "150px",
+              color: "secondary.main",
+            }}
           >
             Service 3
           </Typography>

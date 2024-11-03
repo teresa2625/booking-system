@@ -10,6 +10,7 @@ import Theme from "themes/theme";
 import Box from "@mui/material/Box";
 import Advantage from "components/Advantage";
 import Services from "components/Services";
+import HomeTeam from "components/HomeTeam";
 
 const Home: React.FC = () => {
   return (
@@ -67,7 +68,32 @@ const Home: React.FC = () => {
             </Box>
           </Stack>
           <Services />
-          <Stack></Stack>
+          <Stack direction="row" sx={{ my: "64px" }}>
+            <Box>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  minWidth: "180px",
+                }}
+              >
+                Meet the team
+              </Box>
+              <Box>
+                <HomeTeam />
+              </Box>
+            </Box>
+            <Box>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  minWidth: "180px",
+                }}
+              >
+                Contact us
+              </Box>
+              <Box></Box>
+            </Box>
+          </Stack>
         </Container>
         <Footer />
       </ThemeProvider>
