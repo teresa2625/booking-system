@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Advantage from "components/Advantage";
 import Services from "components/Services";
 import HomeTeam from "components/HomeTeam";
+import ContactUs from "components/ContactUs";
 
 const Home: React.FC = () => {
   return (
@@ -68,8 +69,13 @@ const Home: React.FC = () => {
             </Box>
           </Stack>
           <Services />
-          <Stack direction="row" sx={{ my: "64px" }}>
-            <Box>
+          <Stack
+            direction="row"
+            gap={15}
+            spacing={1}
+            sx={{ my: "64px", maxWidth: "1440px" }}
+          >
+            <Box sx={{ width: "100%" }}>
               <Box
                 sx={{
                   flexGrow: 1,
@@ -82,7 +88,7 @@ const Home: React.FC = () => {
                 <HomeTeam />
               </Box>
             </Box>
-            <Box>
+            <Box sx={{ width: "100%" }}>
               <Box
                 sx={{
                   flexGrow: 1,
@@ -91,7 +97,9 @@ const Home: React.FC = () => {
               >
                 Contact us
               </Box>
-              <Box></Box>
+              <Box>
+                <ContactUs />
+              </Box>
             </Box>
           </Stack>
         </Container>

@@ -6,7 +6,12 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function HomeTeam() {
   return (
-    <Stack direction="row" gap={3} spacing={1} sx={{ mt: "30px" }}>
+    <Stack
+      direction="row"
+      gap={3}
+      spacing={1}
+      sx={{ mt: "30px", maxWidth: "700px" }}
+    >
       <Box>
         <Stack spacing={2} sx={{ minWidth: "240px" }}>
           <AccountCircleIcon
