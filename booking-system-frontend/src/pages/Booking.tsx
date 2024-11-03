@@ -15,7 +15,6 @@ const Booking: React.FC = () => {
         <CssBaseline />
         <NavigationBar />
         <Container maxWidth="xl">
-          <Typography>Booking Page</Typography>
           <BookingForm />
         </Container>
         <Footer />
