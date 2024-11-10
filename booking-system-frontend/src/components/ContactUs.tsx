@@ -1,9 +1,4 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
@@ -110,6 +105,7 @@ function ContactUs() {
             }}
           />
         </Stack>
+        <Button sx={{ bgcolor: "primary.dark" }}>Submit</Button>
       </Stack>
     </FormControl>
   );

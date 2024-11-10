@@ -5,7 +5,6 @@ import Theme from "themes/theme";
 import CssBaseline from "@mui/material/CssBaseline";
 import NavigationBar from "components/NavigationBar";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Footer from "components/Footer";
 
 const Booking: React.FC = () => {
