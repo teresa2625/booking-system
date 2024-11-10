@@ -5,6 +5,21 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 
 function ContactUs() {
+  const [fullName, setFullName] = React.useState<string>("");
+  const [contactEmail, setContactEmail] = React.useState<string>("");
+  const [phoneNum, setPhoneNum] = React.useState<string>("");
+  const [msgTitle, setMsgTitle] = React.useState<string>("");
+  const [msgContext, setMsgContext] = React.useState<string>("");
+
+  const handleSubmit = () => {
+    const emailFormat = {
+      name: fullName,
+      phone: phoneNum,
+      email: contactEmail,
+      title: msgTitle,
+      message: msgContext,
+    };
+  };
   return (
     <FormControl
       sx={{ width: "-webkit-fill-available" }}
@@ -17,6 +32,9 @@ function ContactUs() {
             id="outlined-basic"
             label="Full Name"
             variant="outlined"
+            onChange={(event) => {
+              setFullName(event.target.value);
+            }}
             sx={{
               width: "100%",
               backgroundColor: "primary.main",
@@ -34,6 +52,9 @@ function ContactUs() {
             id="outlined-basic"
             label="Phone"
             variant="outlined"
+            onChange={(event) => {
+              setPhoneNum(event.target.value);
+            }}
             sx={{
               width: "100%",
               backgroundColor: "primary.main",
@@ -53,6 +74,9 @@ function ContactUs() {
             id="outlined-basic"
             label="Email"
             variant="outlined"
+            onChange={(event) => {
+              setContactEmail(event.target.value);
+            }}
             sx={{
               backgroundColor: "primary.main",
               "& label.Mui-focused": {
@@ -69,6 +93,9 @@ function ContactUs() {
             id="outlined-basic"
             label="Title"
             variant="outlined"
+            onChange={(event) => {
+              setMsgTitle(event.target.value);
+            }}
             sx={{
               backgroundColor: "primary.main",
               "& label.Mui-focused": {
@@ -85,6 +112,9 @@ function ContactUs() {
             id="outlined-basic"
             label="Message"
             variant="outlined"
+            onChange={(event) => {
+              setMsgContext(event.target.value);
+            }}
             slotProps={{
               htmlInput: {
                 style: {
@@ -105,7 +135,14 @@ function ContactUs() {
             }}
           />
         </Stack>
-        <Button sx={{ bgcolor: "primary.dark" }}>Submit</Button>
+        <Button
+          sx={{ bgcolor: "primary.dark" }}
+          onClick={() => {
+            handleSubmit;
+          }}
+        >
+          Submit
+        </Button>
       </Stack>
     </FormControl>
   );
