@@ -15,13 +15,6 @@ import { PickersActionBarProps } from "@mui/x-date-pickers/PickersActionBar";
 import useId from "@mui/material/utils/useId";
 
 const BookingForm: React.FC = () => {
-  const [booking, setBooking] = useState<Booking>({
-    name: "",
-    phone: "",
-    email: "",
-    date: "",
-    time: "",
-  });
   const [bookingDateTime, setBookingDateTime] = React.useState<Dayjs | null>(
     null,
   );
@@ -62,7 +55,6 @@ const BookingForm: React.FC = () => {
                 : "",
             );
             onAccept();
-            console.log("DT", bookingDateTime?.month());
           }}
         >
           Submit
@@ -88,24 +80,22 @@ const BookingForm: React.FC = () => {
       date: year + " " + month + " " + date,
       time: hour + ":" + (min == "0" ? "00" : min),
     };
-    setBooking(bookingFormat);
-    console.log(bookingFormat);
+    handleSubmit(bookingFormat);
   };
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (data: Booking) => {
     // Simulate sending data to the backend
-    console.log("Booking data submitted:", booking);
+    console.log("Booking data submitted:", data);
 
     // Uncomment to send to your backend API
-    /*
-    await fetch('http://localhost:4000/api/bookings', {
-      method: 'POST',
+    const response = await fetch("http://localhost:5000/api/bookings", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(booking),
+      body: JSON.stringify(data),
     });
-    */
+    const result = await response.json();
+    console.log("Booking successful:", result);
   };
 
   return (

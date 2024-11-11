@@ -138,7 +138,7 @@ function ContactUs() {
         <Button
           sx={{ bgcolor: "primary.dark" }}
           onClick={() => {
-            handleSubmit;
+            handleSubmit();
           }}
         >
           Submit
