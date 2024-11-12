@@ -59,6 +59,7 @@ function Header() {
               zIndex: "2",
               color: "primary.dark",
               fontSize: "32px",
+              justifyContent: "center",
               display: {
                 xs: "none",
                 sm: "none",
@@ -77,7 +78,7 @@ function Header() {
               backgroundColor: "primary.dark",
               position: "absolute",
               top: "60%",
-              left: "44%",
+              left: "45%",
               zIndex: "2",
             }}
           >

@@ -70,7 +70,7 @@ const Home: React.FC = () => {
           </Stack>
           <Services />
           <Stack
-            direction="row"
+            direction={{ md: 'column', lg:'row' }}
             gap={15}
             spacing={1}
             sx={{ my: "64px", maxWidth: "1440px" }}

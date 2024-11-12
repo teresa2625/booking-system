@@ -1,13 +1,22 @@
-// const { Client } = require('pg');
+const { Client } = require("pg");
 
-// const client = new Client({
-//   user: 'your_user',
-//   host: 'localhost',
-//   database: 'booking_system',
-//   password: 'your_password',
-//   port: 5432,
-// });
+const client = new Client({
+  user: "myuser",
+  host: "localhost",
+  database: "mydatabase",
+  password: "mypassword",
+  port: 5432,
+});
 
-// client.connect();
+async function connectDB() {
+  try {
+    await client.connect();
+    console.log("Connected to PostgreSQL");
+  } catch (err) {
+    console.error("Connection error", err.stack);
+  }
+}
 
-// module.exports = client;
+connectDB();
+
+module.exports = client;
