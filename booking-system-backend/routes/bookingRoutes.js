@@ -1,19 +1,29 @@
-const { saveBooking } = require("../controllers/bookingController");
+const BookingController = require("../controllers/bookingController");
 
-const bookingRoutes = (req, res) => {
-  // Set CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Replace with your frontend URL
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Allowed methods
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Allowed headers
+const bookingRoutes = async (req, res) => {
+
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   if (req.method === "OPTIONS") {
-    res.writeHead(204); // No Content
+    res.statusCode = 204;
     res.end();
     return;
   }
-  if (req.method === "POST" && req.url === "/api/bookings") {
-    saveBooking(req, res);
+
+  if (req.method === "GET") {
+    await BookingController.getBookings(req, res);
+  } else if (req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+    req.on("end", async () => {
+      req.body = JSON.parse(body);
+      await BookingController.addBooking(req, res);
+    });
   } else {
-    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.statusCode = 404;
     res.end("Not Found");
   }
 };
