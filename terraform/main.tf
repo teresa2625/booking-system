@@ -22,10 +22,10 @@ resource "aws_s3_bucket" "bsf_bucket" {
 }
 
 resource "aws_s3_object" "bsf_build_files" {
-  for_each = fileset("${path.module}/build", "**")
+  for_each = fileset("${path.module}/../build", "**")
   bucket   = aws_s3_bucket.bsf_bucket.id
   key      = each.key
-  source   = "${path.module}/build/${each.key}"
+  source   = "${path.module}/../build/${each.key}"
   content_type = lookup(
     {
       html = "text/html",
@@ -61,7 +61,7 @@ resource "aws_s3_bucket_public_access_block" "bsf_bucket_public_access" {
 resource "aws_s3_object" "index_file" {
   bucket       = aws_s3_bucket.bsf_bucket.id
   key          = "index.html"
-  source       = "${path.module}/index.html"
+  source       = "${path.module}/../build/index.html"
   content_type = "text/html"
 }
 
