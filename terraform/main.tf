@@ -34,7 +34,7 @@ resource "aws_s3_object" "bsf_build_files" {
       png  = "image/png",
       jpg  = "image/jpeg"
     },
-    fileext(each.key),
+    split(".", each.key)[length(split(".", each.key)) - 1],
     "application/octet-stream"
   )
 }
