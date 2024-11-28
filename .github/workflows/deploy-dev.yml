@@ -30,7 +30,9 @@ jobs:
           audience: sts.amazonaws.com
 
       - name: Verify AWS Credentials
-        run: aws sts get-caller-identity
+        run: |
+          aws sts get-caller-identity
+          aws s3api get-bucket-location --bucket bsf-bucket
 
       # - name: Run tests
       #   run: |
