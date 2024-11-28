@@ -90,6 +90,12 @@ resource "aws_cloudfront_distribution" "bsf_distribution" {
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = "frontend-origin"
     viewer_protocol_policy = "redirect-to-https"
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
   }
 
   logging_config {
