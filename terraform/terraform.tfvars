@@ -1,1 +1,1 @@
-bucket_name = "BSF-bucket"
+bucket_name = "bsf-bucket"
