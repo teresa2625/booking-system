@@ -18,7 +18,7 @@ resource "aws_dynamodb_table" "terraform_lock" {
 
 # S3 Bucket
 resource "aws_s3_bucket" "bsf_bucket" {
-  bucket = "BSF-bucket"
+  bucket = var.bucket_name
 }
 
 resource "aws_s3_object" "bsf_build_files" {

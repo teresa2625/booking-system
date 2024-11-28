@@ -63,7 +63,7 @@ jobs:
         run: |
           yarn install
           yarn build
-          aws s3 sync build/ s3://${{ env.BUCKET_NAME }} --delete
+          aws s3 sync build/ s3://BSF-bucket --delete
         # env:
         #   REACT_APP_BACKEND_API_URL: ${{ secrets.BACKEND_API_URL }}
 
