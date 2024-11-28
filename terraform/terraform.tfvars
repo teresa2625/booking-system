@@ -1,1 +1,1 @@
-bucket_name = "bsf-bucket"
+bucket_name = "bs-frontend-bucket"

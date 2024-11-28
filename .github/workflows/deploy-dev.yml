@@ -30,9 +30,7 @@ jobs:
           audience: sts.amazonaws.com
 
       - name: Verify AWS Credentials
-        run: |
-          aws sts get-caller-identity
-          aws s3api get-bucket-location --bucket bsf-bucket
+        run: aws sts get-caller-identity
 
       # - name: Run tests
       #   run: |
@@ -53,7 +51,7 @@ jobs:
           terraform state rm aws_s3_bucket.terraform_state || echo "Resource not found in state, continuing..."
           terraform import aws_s3_bucket.terraform_state bsf-terraform-state-bucket
           terraform import aws_dynamodb_table.terraform_lock bsf-terraform-lock-table
-          terraform import aws_s3_bucket.bsf_bucket bsf-bucket
+          terraform import aws_s3_bucket.bsf_bucket bs-frontend-bucket
         working-directory: terraform/
 
       - name: Terraform Plan
@@ -74,7 +72,7 @@ jobs:
         run: |
           yarn install
           yarn build
-          aws s3 sync build/ s3://bsf-bucket --delete
+          aws s3 sync build/ s3://bs-frontend-bucket --delete
         # env:
         #   REACT_APP_BACKEND_API_URL: ${{ secrets.BACKEND_API_URL }}
 
