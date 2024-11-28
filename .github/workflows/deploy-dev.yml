@@ -59,9 +59,8 @@ jobs:
       # Import Resources
       - name: Import Resources
         run: |
-          terraform state rm aws_s3_bucket.terraform_state || echo "Resource not found in state, continuing..."
-          terraform import aws_s3_bucket.terraform_state bsf-terraform-state-bucket
-          terraform import aws_dynamodb_table.terraform_lock bsf-terraform-lock-table
+          terraform state rm aws_s3_bucket.bsf_bucket || echo "Resource not found in state, continuing..."
+          terraform import aws_s3_bucket.bsf_bucket bs-frontend-bucket
         working-directory: terraform/
 
       - name: Terraform Plan
