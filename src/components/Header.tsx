@@ -49,6 +49,7 @@ function Header() {
               maxHeight: "450px",
             }}
             src="/header.jpg"
+            alt="header-img"
           ></img>
           <Typography
             sx={{

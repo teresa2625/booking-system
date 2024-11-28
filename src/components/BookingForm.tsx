@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Booking } from "../types/booking";
 import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -78,7 +78,7 @@ const BookingForm: React.FC = () => {
       phone: phone,
       email: email,
       date: year + " " + month + " " + date,
-      time: hour + ":" + (min == "0" ? "00" : min),
+      time: hour + ":" + (min === "0" ? "00" : min),
     };
     handleSubmit(bookingFormat);
   };

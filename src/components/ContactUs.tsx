@@ -19,6 +19,7 @@ function ContactUs() {
       title: msgTitle,
       message: msgContext,
     };
+    console.log("emailFormat", emailFormat);
   };
   return (
     <FormControl
