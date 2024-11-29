@@ -2,6 +2,8 @@ provider "aws" {
   region = "ap-southeast-2"
 }
 
+data "aws_caller_identity" "current" {}
+
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "bsf-terraform-state-bucket" # Replace with a unique name
 }
@@ -66,7 +68,7 @@ resource "aws_s3_bucket_website_configuration" "bsf_website" {
 
 # Dedicated S3 Bucket for CloudFront Logs
 resource "aws_s3_bucket" "log_bucket" {
-  bucket = "bsf-frontend-logs" # Replace with a unique name
+  bucket = "bs-frontend-logs" # Replace with a unique name
 
   tags = {
     Environment = "Production"
@@ -90,7 +92,7 @@ resource "aws_s3_bucket_policy" "log_bucket_policy" {
         Resource = "${aws_s3_bucket.log_bucket.arn}/*",
         Condition = {
           StringEquals = {
-            "AWS:SourceArn" = aws_cloudfront_distribution.bsf_distribution.arn
+            "AWS:SourceAccount" = data.aws_caller_identity.current.account_id
           }
         }
       }
