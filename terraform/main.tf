@@ -100,15 +100,6 @@ resource "aws_s3_bucket_policy" "log_bucket_policy" {
   })
 }
 
-# Public Access Block Configuration
-resource "aws_s3_bucket_public_access_block" "bsf_bucket_public_access" {
-  bucket                  = aws_s3_bucket.bsf_bucket.id
-  block_public_acls       = false
-  ignore_public_acls      = false
-  block_public_policy     = false
-  restrict_public_buckets = false
-}
-
 # Upload the index.html File
 resource "aws_s3_object" "index_file" {
   bucket       = aws_s3_bucket.bsf_bucket.id
