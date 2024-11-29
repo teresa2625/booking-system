@@ -21,6 +21,22 @@ resource "aws_s3_bucket" "bsf_bucket" {
   bucket = var.bucket_name
 }
 
+
+resource "aws_s3_bucket_policy" "bsf_bucket_policy" {
+  bucket = aws_s3_bucket.bsf_bucket.id
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect    = "Allow",
+        Principal = "*",
+        Action    = "s3:GetObject",
+        Resource  = "${aws_s3_bucket.bsf_bucket.arn}/*"
+      }
+    ]
+  })
+}
 resource "aws_s3_object" "bsf_build_files" {
   for_each = fileset("${path.module}/../build", "**")
   bucket   = aws_s3_bucket.bsf_bucket.id
@@ -46,6 +62,40 @@ resource "aws_s3_bucket_website_configuration" "bsf_website" {
   index_document {
     suffix = "index.html"
   }
+}
+
+# Dedicated S3 Bucket for CloudFront Logs
+resource "aws_s3_bucket" "log_bucket" {
+  bucket = "bsf-frontend-logs" # Replace with a unique name
+
+  tags = {
+    Environment = "Production"
+    Purpose     = "CloudFront Logs"
+  }
+}
+
+# S3 Bucket Policy for Log Bucket
+resource "aws_s3_bucket_policy" "log_bucket_policy" {
+  bucket = aws_s3_bucket.log_bucket.id
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Principal = {
+          Service = "cloudfront.amazonaws.com"
+        },
+        Action   = "s3:PutObject",
+        Resource = "${aws_s3_bucket.log_bucket.arn}/*",
+        Condition = {
+          StringEquals = {
+            "AWS:SourceArn" = aws_cloudfront_distribution.bsf_distribution.arn
+          }
+        }
+      }
+    ]
+  })
 }
 
 # Public Access Block Configuration
