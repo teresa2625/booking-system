@@ -68,7 +68,7 @@ resource "aws_s3_bucket_website_configuration" "bsf_website" {
 
 # Dedicated S3 Bucket for CloudFront Logs
 resource "aws_s3_bucket" "log_bucket" {
-  bucket = "booking-sys-frontend-logs" # Replace with a unique name
+  bucket = "bs-frontend-logs-t" # Replace with a unique name
 
   tags = {
     Environment = "Production"
@@ -88,7 +88,7 @@ resource "aws_s3_bucket_policy" "log_bucket_policy" {
         Principal = {
           Service = "cloudfront.amazonaws.com"
         },
-        Action   = "s3:PutObject",
+        Action   = "s3:*",
         Resource = "${aws_s3_bucket.log_bucket.arn}/*",
         Condition = {
           StringEquals = {
