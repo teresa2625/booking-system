@@ -68,7 +68,7 @@ resource "aws_s3_bucket_website_configuration" "bsf_website" {
 
 # Dedicated S3 Bucket for CloudFront Logs
 resource "aws_s3_bucket" "log_bucket" {
-  bucket = "bs-frontend-logs" # Replace with a unique name
+  bucket = "booking-system-f-logs" # Replace with a unique name
 
   tags = {
     Environment = "Production"
