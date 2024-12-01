@@ -79,7 +79,7 @@ resource "aws_s3_bucket" "log_bucket" {
 }
 
 resource "aws_s3_bucket_ownership_controls" "ownership_control" {
-  bucket = aws_s3_bucket.log_bucket.id
+  bucket = aws_s3_bucket.bsf_bucket.id
 
   rule {
     object_ownership = "BucketOwnerPreferred"
