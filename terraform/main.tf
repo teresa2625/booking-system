@@ -31,10 +31,12 @@ resource "aws_s3_bucket_policy" "bsf_bucket_policy" {
     Version = "2012-10-17",
     Statement = [
       {
-        Effect    = "Allow",
-        Principal = "*",
-        Action    = "s3:*",
-        Resource  = "${aws_s3_bucket.bsf_bucket.arn}/*"
+        Effect = "Allow",
+        Principal = {
+          AWS = ["arn:aws:iam::713292987965:role/OIDC_role", aws_cloudfront_origin_access_identity.oai.iam_arn]
+        },
+        Action   = "s3:*",
+        Resource = "${aws_s3_bucket.bsf_bucket.arn}/*"
       }
     ]
   })
@@ -81,30 +83,6 @@ resource "aws_s3_bucket_logging" "logging" {
   bucket        = aws_s3_bucket.bsf_bucket.id
   target_bucket = aws_s3_bucket.log_bucket.id
   target_prefix = "cloudfront-logs/"
-}
-
-# S3 Bucket Policy for Log Bucket
-resource "aws_s3_bucket_policy" "log_bucket_policy" {
-  bucket = aws_s3_bucket.log_bucket.id
-
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Principal = {
-          Service = "cloudfront.amazonaws.com"
-        },
-        Action   = "s3:*",
-        Resource = "${aws_s3_bucket.log_bucket.arn}/*",
-        Condition = {
-          StringEquals = {
-            "AWS:SourceAccount" = data.aws_caller_identity.current.account_id
-          }
-        }
-      }
-    ]
-  })
 }
 
 # Upload the index.html File
