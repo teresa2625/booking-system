@@ -33,7 +33,7 @@ resource "aws_s3_bucket_policy" "bsf_bucket_policy" {
       {
         Effect    = "Allow",
         Principal = "*",
-        Action    = "s3:GetObject",
+        Action    = "s3:*",
         Resource  = "${aws_s3_bucket.bsf_bucket.arn}/*"
       }
     ]
@@ -68,12 +68,19 @@ resource "aws_s3_bucket_website_configuration" "bsf_website" {
 
 # Dedicated S3 Bucket for CloudFront Logs
 resource "aws_s3_bucket" "log_bucket" {
-  bucket = "bs-frontend-logs-t" # Replace with a unique name
+  bucket = "bs-frontend-logs" # Replace with a unique name
 
   tags = {
     Environment = "Production"
     Purpose     = "CloudFront Logs"
   }
+}
+
+# Configure S3 Bucket Logging
+resource "aws_s3_bucket_logging" "logging" {
+  bucket        = aws_s3_bucket.bsf_bucket.id
+  target_bucket = aws_s3_bucket.log_bucket.id
+  target_prefix = "cloudfront-logs/"
 }
 
 # S3 Bucket Policy for Log Bucket
@@ -126,6 +133,9 @@ resource "aws_cloudfront_distribution" "bsf_distribution" {
   origin {
     domain_name = aws_s3_bucket.bsf_bucket.bucket_regional_domain_name
     origin_id   = "frontend-origin"
+    s3_origin_config {
+      origin_access_identity = aws_cloudfront_origin_access_identity.oai.cloudfront_access_identity_path
+    }
   }
 
   default_cache_behavior {
@@ -156,6 +166,11 @@ resource "aws_cloudfront_distribution" "bsf_distribution" {
   viewer_certificate {
     cloudfront_default_certificate = true
   }
+}
+
+# CloudFront Origin Access Identity (OAI)
+resource "aws_cloudfront_origin_access_identity" "oai" {
+  comment = "Access Identity for CloudFront to access S3"
 }
 
 # Output the CloudFront URL
