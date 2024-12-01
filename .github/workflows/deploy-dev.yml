@@ -57,15 +57,15 @@ jobs:
         working-directory: terraform/
 
       # Import Resources
-      - name: Import Resources
-        run: |
-          terraform state rm aws_s3_bucket.bsf_bucket || echo "Resource not found in state, continuing..."
-          terraform import aws_s3_bucket.bsf_bucket bs-frontend-bucket
-          terraform state rm aws_s3_bucket.terraform_state || echo "Resource not found in state, continuing..."
-          terraform import aws_s3_bucket.terraform_state bsf-terraform-state-bucket
-          terraform import aws_dynamodb_table.terraform_lock bsf-terraform-lock-table
-          terraform import aws_s3_bucket.log_bucket bs-frontend-logs
-        working-directory: terraform/
+      # - name: Import Resources
+      #   run: |
+      #     terraform state rm aws_s3_bucket.bsf_bucket || echo "Resource not found in state, continuing..."
+      #     terraform import aws_s3_bucket.bsf_bucket bs-frontend-bucket
+      #     terraform state rm aws_s3_bucket.terraform_state || echo "Resource not found in state, continuing..."
+      #     terraform import aws_s3_bucket.terraform_state bsf-terraform-state-bucket
+      #     terraform import aws_dynamodb_table.terraform_lock bsf-terraform-lock-table
+      #     terraform import aws_s3_bucket.log_bucket bs-frontend-logs
+      #   working-directory: terraform/
 
       - name: Terraform Plan
         env:
@@ -79,7 +79,7 @@ jobs:
 
       - name: Get S3 bucket name from Terraform
         id: terraform_output
-        run: echo "BUCKET_NAME=$(terraform output -raw bsf_bucket_name)" >> $GITHUB_ENV
+        run: echo "BUCKET_NAME=$(terraform output -raw bsf_bucket_name)"
 
       - name: Build and Deploy Frontend
         run: |
