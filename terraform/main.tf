@@ -2,8 +2,6 @@ provider "aws" {
   region = "ap-southeast-2"
 }
 
-data "aws_caller_identity" "current" {}
-
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "bsf-terraform-state-bucket" # Replace with a unique name
 }
