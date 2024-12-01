@@ -78,6 +78,14 @@ resource "aws_s3_bucket" "log_bucket" {
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "ownership_control" {
+  bucket = aws_s3_bucket.log_bucket.id
+
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 # Configure S3 Bucket Logging
 resource "aws_s3_bucket_logging" "logging" {
   bucket        = aws_s3_bucket.bsf_bucket.id
