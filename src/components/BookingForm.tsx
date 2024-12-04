@@ -87,7 +87,7 @@ const BookingForm: React.FC = () => {
     console.log("Booking data submitted:", data);
 
     // Uncomment to send to your backend API
-    const response = await fetch("http://localhost:5000/api/bookings", {
+    const response = await fetch("http://localhost:5000/bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

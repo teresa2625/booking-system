@@ -26,7 +26,7 @@ function CopyRight() {
               color: "inherit",
             }}
           >
-            Copyright © 2022.All Rights Reserved.
+            Copyright © 2024.All Rights Reserved.
           </Typography>
           <Box
             sx={{
