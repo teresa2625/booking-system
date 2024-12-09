@@ -10,7 +10,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Grid3x3Icon from "@mui/icons-material/Grid3x3";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const pages = ["Home", "Services", "Schedule", "Contact", "Login"];
 interface NavigationBarProps {
@@ -21,6 +21,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );
+  const location = useLocation();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -80,17 +81,41 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" } }}
             >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={() => {
-                    handleCloseNavMenu();
-                    onSectionClick?.(page);
-                  }}
-                >
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                </MenuItem>
-              ))}
+              {pages.map((page) =>
+                page === "Login" ? (
+                  <MenuItem
+                    key={page}
+                    component={Link}
+                    to="/login"
+                    onClick={() => {
+                      handleCloseNavMenu();
+                    }}
+                  >
+                    <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                  </MenuItem>
+                ) : location.pathname != "/" ? (
+                  <MenuItem
+                    key={page}
+                    component={Link}
+                    to="/"
+                    onClick={() => {
+                      handleCloseNavMenu();
+                    }}
+                  >
+                    <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                  </MenuItem>
+                ) : (
+                  <MenuItem
+                    key={page}
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      onSectionClick?.(page);
+                    }}
+                  >
+                    <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                  </MenuItem>
+                ),
+              )}
             </Menu>
           </Box>
           <Typography
@@ -124,6 +149,23 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
                   key={page}
                   component={Link}
                   to="/login"
+                  onClick={() => {
+                    handleCloseNavMenu();
+                  }}
+                  sx={{
+                    my: 2,
+                    color: "inherit",
+                    display: "block",
+                    padding: "0px 15px 0px 15px",
+                  }}
+                >
+                  {page}
+                </Button>
+              ) : location.pathname != "/" ? (
+                <Button
+                  key={page}
+                  component={Link}
+                  to="/"
                   onClick={() => {
                     handleCloseNavMenu();
                   }}

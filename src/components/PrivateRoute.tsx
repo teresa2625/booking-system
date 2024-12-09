@@ -14,6 +14,8 @@ const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
     return <Navigate to="/admin-dashboard" replace />;
   } else if (userRole === "doctor") {
     return <Navigate to="/doctor-dashboard" replace />;
+  } else if (!["admin", "doctor", "patient"].includes(userRole)) {
+    return <Navigate to="/login" replace />;
   } else {
     return <Navigate to="/patient-dashboard" replace />;
   }
