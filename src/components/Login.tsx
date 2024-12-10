@@ -4,9 +4,12 @@ import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
+import Alert from "@mui/material/Alert";
 
 const LoginSignup: React.FC = () => {
+  const navigate = useNavigate();
+
   const [isLogin, setIsLogin] = useState(true);
   const [userFirstName, setUserFirstName] = useState("");
   const [userLastName, setUserLastName] = useState("");
@@ -14,6 +17,8 @@ const LoginSignup: React.FC = () => {
   const [emailAdd, setEmailAdd] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [loginSuccess, setLoginSuccess] = useState<string | null>(null);
+  const [signupSuccess, setSignupSuccess] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,9 +43,21 @@ const LoginSignup: React.FC = () => {
 
       localStorage.setItem("token", response.data.token);
       setError(null);
-      alert(isLogin ? "Login successful!" : "Signup successful!");
+      {
+        isLogin
+          ? setLoginSuccess("Login successful!")
+          : setSignupSuccess("Signup successful!");
+      }
+      setTimeout(navigate, 1000, "/");
     } catch (err) {
       setError("Invalid credentials or user already exists");
+    } finally {
+      setUserFirstName("");
+      setUserLastName("");
+      setPassword("");
+      setEmailAdd("");
+      setPhoneNum("");
+      setError(null);
     }
   };
 
@@ -54,7 +71,9 @@ const LoginSignup: React.FC = () => {
         {isLogin ? "Login" : "Sign Up"}
       </Box>
       <Box>
-        {error && <Typography style={{ color: "red" }}>{error}</Typography>}
+        {loginSuccess && <Alert severity="success">{loginSuccess}</Alert>}
+        {signupSuccess && <Alert severity="success">{signupSuccess}</Alert>}
+        {error && <Alert severity="error">{error}</Alert>}
       </Box>
       <FormControl
         sx={{ width: "-webkit-fill-available", alignItems: "center" }}
