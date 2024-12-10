@@ -137,6 +137,7 @@ const LoginSignup: React.FC = () => {
           <TextField
             id="outlined-basic"
             label="Password"
+            type="password"
             variant="outlined"
             sx={{
               width: "100%",
