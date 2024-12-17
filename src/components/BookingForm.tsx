@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Booking } from "../types/booking";
 import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
@@ -85,15 +86,12 @@ const BookingForm: React.FC = () => {
   const handleSubmit = async (data: Booking) => {
     console.log("Booking data submitted:", data);
 
-    const response = await fetch("http://localhost:5000/bookings", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await response.json();
-    console.log("Booking successful:", result);
+    try {
+      const response = await axios.post("http://localhost:5000/bookings", data);
+      console.log("Booking successful:", response);
+    } catch (err) {
+      console.log("Booking failed:", err);
+    }
   };
 
   return (
