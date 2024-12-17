@@ -18,7 +18,7 @@ const Dashboard: React.FC<DashboardProps> = ({ role }) => {
         <CssBaseline />
         <NavigationBar />
         <Container maxWidth="xl">
-          {role == "doctor" && <DoctorDashboard />}
+          {role === "doctor" && <DoctorDashboard />}
         </Container>
         <Footer />
       </ThemeProvider>

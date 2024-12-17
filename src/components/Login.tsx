@@ -43,11 +43,9 @@ const LoginSignup: React.FC = () => {
 
       localStorage.setItem("token", response.data.token);
       setError(null);
-      {
-        isLogin
-          ? setLoginSuccess("Login successful!")
-          : setSignupSuccess("Signup successful!");
-      }
+      isLogin
+        ? setLoginSuccess("Login successful!")
+        : setSignupSuccess("Signup successful!");
       setTimeout(navigate, 1000, "/");
     } catch (err) {
       setError("Invalid credentials or user already exists");
