@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "bsf-terraform-state-bucket" # Replace with a unique name
+  bucket = "bsf-terraform-state-bucket"
 }
 
 resource "aws_dynamodb_table" "terraform_lock" {
@@ -68,7 +68,7 @@ resource "aws_s3_bucket_website_configuration" "bsf_website" {
 
 # Dedicated S3 Bucket for CloudFront Logs
 resource "aws_s3_bucket" "log_bucket" {
-  bucket = "bs-frontend-logs" # Replace with a unique name
+  bucket = "bs-frontend-logs"
 
   tags = {
     Environment = "Production"
@@ -102,7 +102,7 @@ resource "aws_s3_object" "index_file" {
 resource "aws_s3_bucket_metric" "frontend_metrics" {
   bucket = aws_s3_bucket.bsf_bucket.id
 
-  name = "FrontendMetrics" # This is a required attribute for naming the metric configuration.
+  name = "FrontendMetrics"
 
   filter {
     prefix = "/"
@@ -143,7 +143,7 @@ resource "aws_cloudfront_distribution" "bsf_distribution" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "none" # Allow access from all countries
+      restriction_type = "none"
     }
   }
 

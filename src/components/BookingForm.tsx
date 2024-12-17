@@ -83,10 +83,8 @@ const BookingForm: React.FC = () => {
     handleSubmit(bookingFormat);
   };
   const handleSubmit = async (data: Booking) => {
-    // Simulate sending data to the backend
     console.log("Booking data submitted:", data);
 
-    // Uncomment to send to your backend API
     const response = await fetch("http://localhost:5000/bookings", {
       method: "POST",
       headers: {

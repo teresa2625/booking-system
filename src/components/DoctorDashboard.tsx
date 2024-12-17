@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import FullCalendar from "@fullcalendar/react"; // FullCalendar React component
-import dayGridPlugin from "@fullcalendar/daygrid"; // Day grid view
-import timeGridPlugin from "@fullcalendar/timegrid"; // Time grid view
-import interactionPlugin from "@fullcalendar/interaction"; // Drag and drop functionality
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
 
 interface DoctorDashboardProps {
   id: string;
@@ -40,12 +40,11 @@ const DoctorDashboard: React.FC = () => {
 
   useEffect(() => {
     console.log("dashboard");
-    // Transform bookings into events for FullCalendar
     const calendarEvents = mockBookings.map((booking) => ({
       id: booking.id,
       title: `${booking.title} - ${booking.notes || "No notes"}`,
-      start: booking.date, // ISO string or Date object
-      end: booking.endDate || booking.date, // Optional: Specify end date/time
+      start: booking.date,
+      end: booking.endDate || booking.date,
     }));
     setEvents(calendarEvents);
   }, [mockBookings]);
@@ -59,9 +58,9 @@ const DoctorDashboard: React.FC = () => {
         center: "title",
         right: "dayGridMonth,timeGridWeek,timeGridDay",
       }}
-      events={events} // Provide events to FullCalendar
-      editable={false} // Disable event drag and drop
-      eventClick={(info) => alert(`Booking Details: ${info.event.title}`)} // Handle event clicks
+      events={events}
+      editable={false}
+      eventClick={(info) => alert(`Booking Details: ${info.event.title}`)}
     />
   );
 };

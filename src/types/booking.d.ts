@@ -1,5 +1,5 @@
 export interface Booking {
-    id?: number; // Optional for new bookings
+    id?: number;
     name: string;
     phone: string;
     email: string;
