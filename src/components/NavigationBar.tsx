@@ -93,7 +93,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
                   >
                     <Typography sx={{ textAlign: "center" }}>{page}</Typography>
                   </MenuItem>
-                ) : location.pathname != "/" ? (
+                ) : location.pathname !== "/" ? (
                   <MenuItem
                     key={page}
                     component={Link}
@@ -161,7 +161,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
                 >
                   {page}
                 </Button>
-              ) : location.pathname != "/" ? (
+              ) : location.pathname !== "/" ? (
                 <Button
                   key={page}
                   component={Link}

@@ -47,7 +47,7 @@ const DoctorDashboard: React.FC = () => {
       end: booking.endDate || booking.date,
     }));
     setEvents(calendarEvents);
-  }, [mockBookings]);
+  }, []);
 
   return (
     <FullCalendar
