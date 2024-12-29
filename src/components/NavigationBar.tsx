@@ -12,7 +12,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Grid3x3Icon from "@mui/icons-material/Grid3x3";
 import { Link, useLocation } from "react-router-dom";
 
-const pages = ["Home", "Services", "Schedule", "Contact", "Login"];
 interface NavigationBarProps {
   onSectionClick?: (section: string) => void;
 }
@@ -22,6 +21,10 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
     null,
   );
   const location = useLocation();
+  const token = localStorage.getItem("token");
+  const pages = token
+    ? ["Home", "Services", "Schedule", "Contact", "Logout"]
+    : ["Home", "Services", "Schedule", "Contact", "Login"];
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -93,6 +96,18 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
                   >
                     <Typography sx={{ textAlign: "center" }}>{page}</Typography>
                   </MenuItem>
+                ) : page === "Logout" ? (
+                  <MenuItem
+                    key={page}
+                    component={Link}
+                    to="/"
+                    onClick={() => {
+                      localStorage.clear();
+                      handleCloseNavMenu();
+                    }}
+                  >
+                    <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                  </MenuItem>
                 ) : location.pathname !== "/" ? (
                   <MenuItem
                     key={page}
@@ -150,6 +165,24 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ onSectionClick }) => {
                   component={Link}
                   to="/login"
                   onClick={() => {
+                    handleCloseNavMenu();
+                  }}
+                  sx={{
+                    my: 2,
+                    color: "inherit",
+                    display: "block",
+                    padding: "0px 15px 0px 15px",
+                  }}
+                >
+                  {page}
+                </Button>
+              ) : page === "Logout" ? (
+                <Button
+                  key={page}
+                  component={Link}
+                  to="/"
+                  onClick={() => {
+                    localStorage.clear();
                     handleCloseNavMenu();
                   }}
                   sx={{
