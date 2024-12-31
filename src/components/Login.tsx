@@ -28,10 +28,10 @@ const LoginSignup: React.FC = () => {
       return false;
     }
 
-    // if (!emailRegex.test(emailAdd)) {
-    //   setError("Invalid email format.");
-    //   return false;
-    // }
+    if (!emailRegex.test(emailAdd)) {
+      setError("Invalid email format.");
+      return false;
+    }
 
     if (password.length < 6) {
       setError("Password must be at least 6 characters long.");
@@ -68,10 +68,8 @@ const LoginSignup: React.FC = () => {
           };
 
       const response = await axios.post(url, body);
-      // saveData("token", response.data.token, 5 * 60 * 60 * 1000);
-      saveData("token", response.data.token, 2 * 1000);
+      saveData("token", response.data.token, 5 * 60 * 60 * 1000);
       console.log("response.data", response.data);
-      // localStorage.setItem("token", response.data.token);
 
       setError(null);
       setSuccessMessage(isLogin ? "Login successful!" : "Signup successful!");

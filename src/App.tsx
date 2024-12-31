@@ -11,6 +11,7 @@ import Confirmation from "./pages/Confirmation";
 import SignUp from "./pages/SignUp";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
+import useLocalStorageWithExpiry from "hooks/useLocalStorageWithExpiry";
 
 const App: React.FC = () => {
   const token = localStorage.getItem("token");
@@ -35,6 +36,8 @@ const App: React.FC = () => {
   }
 
   const isUnauthorized = !token || !ALLOW_ROLES.includes(userRole);
+
+  useLocalStorageWithExpiry();
 
   return (
     <Router>
